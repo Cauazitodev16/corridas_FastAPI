@@ -3,12 +3,11 @@ from typing import Optional
 from datetime import datetime
 from decimal import Decimal
 
-class PagamentoSchema(BaseModel):
-    id_pagamento: Optional[int] = None
-    id_corrida: int
-    valor: Decimal
-    id_metodo_pagamento: int
-    datahora_transacao: datetime
+class MotoristaSchema(BaseModel):
+    id_motorista: Optional[int] = None
+    id_usuario: int
+    media_avaliacao: Optional[Decimal] = None
+    cnh: int
 
     class Config:
         from_attributes = True

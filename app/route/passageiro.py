@@ -1,35 +1,23 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from app.database import get_db
-from app.model.corrida import CorridaModel
-# from app.schema.corrida import CorridaSchema # Importe quando criar o Schema
+from app.model.passageiro import PassageiroModel
+from app.Schema.passageiro import PassageiroSchema
 
-corrida = APIRouter(prefix="/corridas", tags=["Corridas"])
+passageiro = APIRouter(prefix="/passageiro", tags=["Passageiro"])
 
-@corrida.post("/", status_code=status.HTTP_201_CREATED)
-async def criar_corrida(dados: dict, db: Session = Depends(get_db)):
-    nova_corrida = CorridaModel(**dados)
-    db.add(nova_corrida)
+
+@passageiro.post("/")
+def criar_passageiro(dados: PassageiroSchema, db: Session = Depends(get_db)):
+    novo_passageiro = PassageiroModel(**dados.model_dump())
+
+    db.add(novo_passageiro)
     db.commit()
-    db.refresh(nova_corrida)
-    return nova_corrida
+    db.refresh(novo_passageiro)
 
-@corrida.get("/")
-async def listar_corridas(db: Session = Depends(get_db)):
-    return db.query(CorridaModel).all()
+    return novo_passageiro
 
-@corrida.get("/{id}")
-async def buscar_corrida(id: int, db: Session = Depends(get_db)):
-    item = db.query(CorridaModel).filter(CorridaModel.id_corrida == id).first()
-    if not item:
-        raise HTTPException(status_code=404, detail="Corrida não encontrada")
-    return item
 
-@corrida.delete("/{id}")
-async def deletar_corrida(id: int, db: Session = Depends(get_db)):
-    item = db.query(CorridaModel).filter(CorridaModel.id_corrida == id).first()
-    if not item:
-        raise HTTPException(status_code=404, detail="Corrida não encontrada")
-    db.delete(item)
-    db.commit()
-    return {"detail": "Corrida deletada com sucesso"
+@passageiro.get("/")
+def listar_passageiros(db: Session = Depends(get_db)):
+    return db.query(PassageiroModel).all()
