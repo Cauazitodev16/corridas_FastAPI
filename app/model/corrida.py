@@ -1,18 +1,18 @@
-from sqlalchemy import Column, BigInteger, Integer, DateTime, String, Numeric, Enum, ForeignKey
+from sqlalchemy import Column, Integer, DateTime, String, Numeric, Enum, ForeignKey
 from app.database import Base
 
 class CorridaModel(Base):
     __tablename__ = "corrida"
 
-    id_corrida = Column(BigInteger, primary_key=True, autoincrement=True)
+    id_corrida = Column(Integer, primary_key=True, autoincrement=True)
     
     # Chaves Estrangeiras (Foreign Keys)
     # Certifique-se que o nome antes do ponto (ex: 'passageiro') 
     # seja o __tablename__ definido nos outros arquivos.
-    id_passageiro = Column(BigInteger, ForeignKey("passageiro.id_passageiro"), nullable=False)
-    id_motorista = Column(BigInteger, ForeignKey("motorista.id_motorista"), nullable=True)
+    id_passageiro = Column(Integer, ForeignKey("passageiro.id_passageiro"), nullable=False)
+    id_motorista = Column(Integer, ForeignKey("motorista.id_motorista"), nullable=True)
     id_servico = Column(Integer, ForeignKey("servico.id_servico"), nullable=False)
-    id_avaliacao = Column(BigInteger, ForeignKey("avaliacao.id_avaliacao"), nullable=True)
+    id_avaliacao = Column(Integer, ForeignKey("avaliacao.id_avaliacao"), nullable=True)
     
     datahora_inicio = Column(DateTime, nullable=False)
     datahora_fim = Column(DateTime, nullable=True)

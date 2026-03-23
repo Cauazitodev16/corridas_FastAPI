@@ -9,4 +9,4 @@ class VeiculoSchema(BaseModel):
     id_classe: int
 
     class Config:
-        from_attributes = True
+         from_attributes = True

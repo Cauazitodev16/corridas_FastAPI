@@ -1,16 +1,19 @@
+### =========================
 ### Variáveis de ambiente
+### =========================
 @base_url = http://127.0.0.1:8000
 
-### Teste de conexão com a API
+### =========================
+### ROTA RAIZ (opcional)
+### =========================
 GET {{base_url}}/ HTTP/1.1
 Accept: application/json
 
-
 ### =========================
-### USUARIO
+### USUÁRIO
 ### =========================
 
-### Criação de usuário
+# Criar usuário
 POST {{base_url}}/usuario/ HTTP/1.1
 Content-Type: application/json
 
@@ -24,19 +27,15 @@ Content-Type: application/json
     "usuario": "caua_dev"
 }
 
-### Obtenção de todos os usuários
+# Listar todos os usuários
 GET {{base_url}}/usuario/ HTTP/1.1
 Accept: application/json
 
-### Obtenção de um usuário existente
+# Buscar usuário existente
 GET {{base_url}}/usuario/1 HTTP/1.1
 Accept: application/json
 
-### Tentativa de buscar usuário inexistente
-GET {{base_url}}/usuario/99 HTTP/1.1
-Accept: application/json
-
-### Atualização de usuário existente
+# Atualizar usuário existente
 PUT {{base_url}}/usuario/1 HTTP/1.1
 Content-Type: application/json
 
@@ -50,20 +49,42 @@ Content-Type: application/json
     "usuario": "caua_dev"
 }
 
-### Remoção de usuário existente
+# Deletar usuário existente
 DELETE {{base_url}}/usuario/1 HTTP/1.1
 Accept: application/json
 
-### Tentativa de remoção de usuário inexistente
-DELETE {{base_url}}/usuario/99 HTTP/1.1
+### =========================
+### VEÍCULO
+### =========================
+
+# Criar veículo
+POST {{base_url}}/veiculo/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "placa": "ABC1234",
+    "id_modelo": 1,
+    "tem_seguro": 1,
+    "id_classe": 1
+}
+
+# Listar veículos
+GET {{base_url}}/veiculo/ HTTP/1.1
 Accept: application/json
 
+# Buscar veículo
+GET {{base_url}}/veiculo/1 HTTP/1.1
+Accept: application/json
+
+# Deletar veículo
+DELETE {{base_url}}/veiculo/1 HTTP/1.1
+Accept: application/json
 
 ### =========================
 ### CORRIDA
 ### =========================
 
-### Criação de corrida
+# Criar corrida
 POST {{base_url}}/corrida/ HTTP/1.1
 Content-Type: application/json
 
@@ -78,50 +99,14 @@ Content-Type: application/json
     "status": "Pendente"
 }
 
-### Obtenção de corridas
+# Listar corridas
 GET {{base_url}}/corrida/ HTTP/1.1
 Accept: application/json
 
-### Buscar corrida existente
+# Buscar corrida existente
 GET {{base_url}}/corrida/1 HTTP/1.1
 Accept: application/json
 
-### Buscar corrida inexistente
-GET {{base_url}}/corrida/99 HTTP/1.1
-Accept: application/json
-
-### Deletar corrida existente
+# Deletar corrida existente
 DELETE {{base_url}}/corrida/1 HTTP/1.1
-Accept: application/json
-
-### Deletar corrida inexistente
-DELETE {{base_url}}/corrida/99 HTTP/1.1
-Accept: application/json
-
-
-### =========================
-### VEICULO
-### =========================
-
-### Criar veículo
-POST {{base_url}}/veiculo/ HTTP/1.1
-Content-Type: application/json
-
-{
-    "placa": "ABC1234",
-    "id_modelo": 1,
-    "tem_seguro": 1,
-    "id_classe": 1
-}
-
-### Listar veículos
-GET {{base_url}}/veiculo/ HTTP/1.1
-Accept: application/json
-
-### Buscar veículo
-GET {{base_url}}/veiculo/1 HTTP/1.1
-Accept: application/json
-
-### Deletar veículo
-DELETE {{base_url}}/veiculo/1 HTTP/1.1
 Accept: application/json

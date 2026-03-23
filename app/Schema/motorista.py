@@ -1,6 +1,5 @@
 from pydantic import BaseModel
 from typing import Optional
-from datetime import datetime
 from decimal import Decimal
 
 class MotoristaSchema(BaseModel):
@@ -10,4 +9,4 @@ class MotoristaSchema(BaseModel):
     cnh: int
 
     class Config:
-        from_attributes = True
+         from_attributes = True

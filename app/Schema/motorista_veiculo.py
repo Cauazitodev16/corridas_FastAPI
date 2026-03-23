@@ -5,7 +5,7 @@ from datetime import datetime
 class MotoristaVeiculoSchema(BaseModel):
     id_motorista: int
     id_veiculo: int
-    datahora_inicio: datetime
+    datahora_inicio: Optional[datetime] = None
     datahora_fim: Optional[datetime] = None
 
     class Config:

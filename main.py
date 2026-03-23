@@ -1,7 +1,5 @@
 from fastapi import FastAPI
 from app.database import Base, engine
-
-# Importação das rotas
 from app.route.pagamentos import pagamento
 from app.route.usuario import usuario
 from app.route.corrida import corrida
@@ -22,7 +20,7 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 
-# Registrar rotas (SEM vírgula)
+# Registro de rotas 
 app.include_router(usuario)
 app.include_router(passageiro)
 app.include_router(motorista)

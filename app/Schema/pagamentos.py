@@ -11,4 +11,4 @@ class PagamentoSchema(BaseModel):
     datahora_transacao: datetime
 
     class Config:
-        from_attributes = True
+         from_attributes = True
