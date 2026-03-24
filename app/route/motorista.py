@@ -4,7 +4,7 @@ from app.database import get_db
 from app.model.motorista import MotoristaModel
 from app.Schema.motorista import MotoristaSchema
 
-motorista = APIRouter(prefix="/motorista", tags=["Motorista"])
+motorista = APIRouter()
 
 
 @motorista.post("/")

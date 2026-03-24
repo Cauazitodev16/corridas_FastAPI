@@ -4,7 +4,7 @@ from app.database import get_db
 from app.model.veiculo import VeiculoModel
 from app.Schema.veiculo import VeiculoSchema
 
-veiculo = APIRouter(prefix="/veiculo", tags=["Veiculo"])
+veiculo = APIRouter()
 
 
 @veiculo.post("/")

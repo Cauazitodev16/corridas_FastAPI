@@ -4,7 +4,7 @@ from app.database import get_db
 from app.model.classe import ClasseModel
 from app.Schema.classe import ClasseSchema
 
-classe = APIRouter(prefix="/classe", tags=["Classe"])
+classe = APIRouter()
 
 @classe.post("/")
 async def criar_classe(dados: ClasseSchema, db: Session = Depends(get_db)):

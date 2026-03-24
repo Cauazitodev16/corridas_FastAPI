@@ -5,10 +5,6 @@ class CorridaModel(Base):
     __tablename__ = "corrida"
 
     id_corrida = Column(Integer, primary_key=True, autoincrement=True)
-    
-    # Chaves Estrangeiras (Foreign Keys)
-    # Certifique-se que o nome antes do ponto (ex: 'passageiro') 
-    # seja o __tablename__ definido nos outros arquivos.
     id_passageiro = Column(Integer, ForeignKey("passageiro.id_passageiro"), nullable=False)
     id_motorista = Column(Integer, ForeignKey("motorista.id_motorista"), nullable=True)
     id_servico = Column(Integer, ForeignKey("servico.id_servico"), nullable=False)
@@ -20,7 +16,6 @@ class CorridaModel(Base):
     local_destino = Column(String(100), nullable=False)
     valor_estimado = Column(Numeric(10, 2), nullable=False)
     
-    # O Enum define as opções fixas para o status
     status = Column(
         Enum("Pendente", "Em andamento", "Concluída", "Cancelada", name="status_corrida"),
         default="Pendente",

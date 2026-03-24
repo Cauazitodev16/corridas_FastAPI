@@ -4,7 +4,7 @@ from app.database import get_db
 from app.model.motorista_veiculo import MotoristaVeiculoModel
 from app.Schema.motorista_veiculo import MotoristaVeiculoSchema
 
-motorista_veiculo = APIRouter(prefix="/motorista_veiculo", tags=["MotoristaVeiculo"])
+motorista_veiculo = APIRouter()
 
 @motorista_veiculo.post("/")
 async def criar_relacao(dados: MotoristaVeiculoSchema, db: Session = Depends(get_db)):

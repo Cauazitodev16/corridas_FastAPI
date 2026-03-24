@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from app.database import get_db
 from app.model.usuario import UsuarioModel
 
-usuario = APIRouter(prefix="/usuarios", tags=["Usuários"])
+usuario = APIRouter()
 
 @usuario.post("/", status_code=status.HTTP_201_CREATED)
 async def criar_usuario(dados: dict, db: Session = Depends(get_db)):

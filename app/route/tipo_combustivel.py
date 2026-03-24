@@ -4,7 +4,7 @@ from app.database import get_db
 from app.model.tipo_combustivel import TipoCombustivelModel
 from app.Schema.tipo_combustivel import TipoCombustivelSchema
 
-tipo_combustivel = APIRouter(prefix="/tipo_combustivel", tags=["TipoCombustivel"])
+tipo_combustivel = APIRouter()
 
 @tipo_combustivel.post("/")
 def criar_tipo_combustivel(dados: TipoCombustivelSchema, db: Session = Depends(get_db)):

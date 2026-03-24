@@ -4,7 +4,7 @@ from app.database import get_db
 from app.model.servico import ServicoModel
 from app.Schema.servico import ServicoSchema
 
-servico = APIRouter(prefix="/servico", tags=["Servico"])
+servico = APIRouter()
 
 @servico.post("/")
 async def criar_servico(dados: ServicoSchema, db: Session = Depends(get_db)):

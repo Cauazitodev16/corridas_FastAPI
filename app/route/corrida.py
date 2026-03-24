@@ -4,7 +4,7 @@ from app.database import get_db
 from app.model.corrida import CorridaModel
 from app.Schema.corrida import CorridaSchema
 
-corrida = APIRouter(prefix="/corrida", tags=["Corrida"])
+corrida = APIRouter()
 
 
 @corrida.post("/")

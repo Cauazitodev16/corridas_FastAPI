@@ -4,7 +4,7 @@ from app.database import get_db
 from app.model.metodo_pagamento import MetodoPagamentoModel
 from app.Schema.metodo_pagamento import MetodoPagamentoSchema
 
-metodo_pagamento = APIRouter(prefix="/metodo_pagamento", tags=["MetodoPagamento"])
+metodo_pagamento = APIRouter()
 
 @metodo_pagamento.post("/")
 async def criar_metodo(dados: MetodoPagamentoSchema, db: Session = Depends(get_db)):

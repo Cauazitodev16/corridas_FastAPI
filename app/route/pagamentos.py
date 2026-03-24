@@ -4,7 +4,7 @@ from app.database import get_db
 from app.model.pagamentos import PagamentoModel
 from app.Schema.pagamentos import PagamentoSchema
 
-pagamento = APIRouter(prefix="/pagamento", tags=["Pagamento"])
+pagamento = APIRouter()
 
 
 @pagamento.post("/")

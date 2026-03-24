@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / ".env")
  
-# Inicialização (criação do SCHEMA)
+
 SERVER_URL = f"mysql+pymysql://{getenv('DB_USER')}:{getenv('DB_PSWD')}@{getenv('DB_HOST')}"
 engine_server = create_engine(SERVER_URL)
  
@@ -15,20 +15,19 @@ with engine_server.connect() as conn:
     conn.execute(text(f"CREATE DATABASE IF NOT EXISTS {getenv('DB_NAME')}"))
     conn.commit()
  
-# Conexão com o banco 
+
 SQLALCHEMY_DATABASE_URL = f"mysql+pymysql://{getenv('DB_USER')}:{getenv('DB_PSWD')}@{getenv('DB_HOST')}/{getenv('DB_NAME')}"
  
-# Criar um "motor" que fará o gerenciamento da conexão
+
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
  
-# Criando uma sessão para executar os comandos SQL
+
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
  
-# Cria um objeto da base dados manipulável pelo Python
+
 Base = declarative_base()
  
-# Injeção de dependência
-# em cada rota que for criada
+
 def get_db():
     db = SessionLocal()
     try:

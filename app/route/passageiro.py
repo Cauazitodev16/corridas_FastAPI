@@ -4,7 +4,7 @@ from app.database import get_db
 from app.model.passageiro import PassageiroModel
 from app.Schema.passageiro import PassageiroSchema
 
-passageiro = APIRouter(prefix="/passageiro", tags=["Passageiro"])
+passageiro = APIRouter()
 
 
 @passageiro.post("/")
